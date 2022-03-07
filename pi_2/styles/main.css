@@ -76,3 +76,7 @@ button.menu-object:hover:not(:active){
 	height: 70px;
 	font-size: 30px;
 }
+
+.menu_opcions a{
+	text-decoration: none;
+}
