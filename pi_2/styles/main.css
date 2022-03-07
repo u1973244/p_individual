@@ -29,3 +29,12 @@ button.menu-object:hover:not(:active){
 	height: 85px;
 }
 
+.menu{
+	width: 14rem;
+	background-color: rgb(236, 236, 185);
+	color:rgb(37, 37, 37)
+}
+
+.menu_titol{
+	font-size: 3rem;
+}
