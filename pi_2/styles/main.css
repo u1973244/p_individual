@@ -30,11 +30,17 @@ button.menu-object:hover:not(:active){
 }
 
 .menu{
-	width: 14rem;
+	width: 40rem;
 	background-color: rgb(236, 236, 185);
-	color:rgb(37, 37, 37)
+	color:rgb(37, 37, 37);
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 3rem;
+	padding-bottom: 3rem;
 }
 
 .menu_titol{
-	font-size: 3rem;
+	font-size: 2rem;
+	margin-left: auto;
+	margin-right: auto;
 }
