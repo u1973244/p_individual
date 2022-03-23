@@ -11,13 +11,16 @@ var load = function(){
 };
 load();
 
-/*function tapar_cartes() {
+function tapar_cartes() {
 	for (var i = 0; i < game.items.length; i++){
 		game.current_card[i].texture=back;
+		game.current_card[i].done=false;
 	}
-}*/
+}
 
-//const myTimeout = setTimeout(tapar_cartes, 5000);
+
+
+
 
 var game = new Vue({
 	el: "#game_id",
@@ -26,10 +29,12 @@ var game = new Vue({
 		current_card: [],
 		items: [],
 		num_cards: 2,
-		bad_clicks: 0
+		bad_clicks: 0,
+		dificulty: "hard"
 	},
 	created: function(){
 		this.num_cards=options_data.cards;
+		this.dificulty=options_data.dificulty;
 		this.username = sessionStorage.getItem("username","unknown");
 		this.items = items.slice(); // Copiem l'array
 		this.items.sort(function(){return Math.random() - 0.5}); // Array aleatòria
@@ -37,9 +42,12 @@ var game = new Vue({
 		this.items = this.items.concat(this.items); // Dupliquem els elements
 		this.items.sort(function(){return Math.random() - 0.5}); // Array aleatòria
 		for (var i = 0; i < this.items.length; i++){
-			this.current_card.push({done: false, texture: this.items[i]});
-			Vue.set(this.current_card, i, {done: false, texture: this.items[i]});
+			this.current_card.push({done: true, texture: this.items[i]});
 		}
+		var milisegons=1500;
+		if (this.dificulty=="hard") milisegons=500;
+		else if (this.dificulty=="normal") milisegons=1000;
+		const myTimeout = setTimeout(tapar_cartes, milisegons);
 	},
 	methods: {
 		clickCard: function(i){
@@ -80,9 +88,8 @@ var game = new Vue({
 		}
 	}
 	
+	
 });
-
-
 
 
 
