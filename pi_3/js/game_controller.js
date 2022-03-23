@@ -11,13 +11,13 @@ var load = function(){
 };
 load();
 
-function tapar_cartes() {
+/*function tapar_cartes() {
 	for (var i = 0; i < game.items.length; i++){
 		game.current_card[i].texture=back;
 	}
-}
+}*/
 
-const myTimeout = setTimeout(tapar_cartes, 5000);
+//const myTimeout = setTimeout(tapar_cartes, 5000);
 
 var game = new Vue({
 	el: "#game_id",
@@ -38,6 +38,7 @@ var game = new Vue({
 		this.items.sort(function(){return Math.random() - 0.5}); // Array aleatòria
 		for (var i = 0; i < this.items.length; i++){
 			this.current_card.push({done: false, texture: this.items[i]});
+			Vue.set(this.current_card, i, {done: false, texture: this.items[i]});
 		}
 	},
 	methods: {
