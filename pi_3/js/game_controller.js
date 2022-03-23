@@ -28,8 +28,9 @@ var game = new Vue({
 		this.items = this.items.concat(this.items); // Dupliquem els elements
 		this.items.sort(function(){return Math.random() - 0.5}); // Array aleatòria
 		for (var i = 0; i < this.items.length; i++){
-			this.current_card.push({done: false, texture: back});
+			this.current_card.push({done: false, texture: this.items[i]});
 		}
+		const myTimeout = setTimeout(tapar_cartes, 5000);
 	},
 	methods: {
 		clickCard: function(i){
@@ -67,6 +68,11 @@ var game = new Vue({
 	computed: {
 		score_text: function(){
 			return 100 - this.bad_clicks * 20;
+		}
+	}
+	function tapar_cartes() {
+		for (var i = 0; i < this.items.length; i++){
+			this.current_card[i].texture=back;
 		}
 	}
 });
