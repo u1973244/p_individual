@@ -84,7 +84,9 @@ var game = new Vue({
 	},
 	computed: {
 		score_text: function(){
-			return 100 - this.bad_clicks * 20;
+			if (this.dificulty=="hard")return 100 - this.bad_clicks * 30;
+			else if (this.dificulty=="normal") return 100 - this.bad_clicks * 20;
+			else return 100 - this.bad_clicks * 10;
 		}
 	}
 	
