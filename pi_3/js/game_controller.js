@@ -10,6 +10,15 @@ var load = function(){
 	options_data = JSON.parse(json);
 };
 load();
+
+function tapar_cartes() {
+	for (var i = 0; i < game.items.length; i++){
+		game.current_card[i].texture=back;
+	}
+}
+
+const myTimeout = setTimeout(tapar_cartes, 5000);
+
 var game = new Vue({
 	el: "#game_id",
 	data: {
@@ -30,7 +39,6 @@ var game = new Vue({
 		for (var i = 0; i < this.items.length; i++){
 			this.current_card.push({done: false, texture: this.items[i]});
 		}
-		const myTimeout = setTimeout(tapar_cartes, 5000);
 	},
 	methods: {
 		clickCard: function(i){
@@ -70,11 +78,7 @@ var game = new Vue({
 			return 100 - this.bad_clicks * 20;
 		}
 	}
-	function tapar_cartes() {
-		for (var i = 0; i < this.items.length; i++){
-			this.current_card[i].texture=back;
-		}
-	}
+	
 });
 
 
